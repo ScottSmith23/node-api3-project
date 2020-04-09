@@ -126,10 +126,10 @@ function validateUserId(req, res, next) {
 function validateUser(req, res, next) {
   const userData = req.body;
   if (Object.keys(userData).length === 0) {
-    res.status(400).json({ message: "missing user data." });
+    res.status(400).json({ message: "No data" });
   }
   if (!userData.name) {
-    res.status(400).json({ message: "missing required name field." });
+    res.status(400).json({ message: "No name field" });
   } else {
     next();
   }
@@ -138,10 +138,10 @@ function validateUser(req, res, next) {
 function validatePost(req, res, next) {
   const postData = { ...req.body, user_id: req.params.id };
   if (Object.keys(postData).length === 0) {
-    res.status(400).json({ message: "missing post data." });
+    res.status(400).json({ message: "No data" });
   }
   if (!postData.text) {
-    res.status(400).json({ message: "missing required text field." });
+    res.status(400).json({ message: "No text" });
   } else {
     next();
   }
